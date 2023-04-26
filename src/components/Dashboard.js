@@ -1,9 +1,8 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {} from 'react';
 import withAuth from './withAuth';
 import SignOutButton from './SignOutButton';
 import { UserPool } from './cognitoConfig';
 import UserStocksContainer from './UserStocksContainer';
-import jwt_decode from 'jwt-decode';
 // import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
