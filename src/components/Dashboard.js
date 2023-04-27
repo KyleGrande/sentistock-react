@@ -7,6 +7,7 @@ import UserStocksContainer from './UserStocksContainer';
 import StockSearch from './StockSearch';
 import { getCognitoUserId, getUserGivenName } from './getCognitoUserId';
 import { useNavigate } from 'react-router-dom';
+import './Dashboard.css';
 
 function Dashboard() {
   const [userStocks, setUserStocks] = useState([]);
@@ -40,12 +41,21 @@ function Dashboard() {
   };
 
   return (
-    <div>
+    <div className='Dashboard'>
+      <div className='Dashboard-Header'>
       <h1>Hello, {userGivenName}</h1>
       <SignOutButton onSignOut={handleSignOut} />
+      </div>
+      <div className='Dashboard-Main-Container'>
+
+      <div className='user-Stocks-Container'>
       <UserStocksContainer userStocks={userStocks} setUserStocks={setUserStocks} />
       {/* <StockSearch2 handleAddStock={handleAddStock} /> */}
+      </div>
+      <div className='stock-Seach-Container'>
       <StockSearch handleAddStock={handleAddStock} />
+      </div>
+      </div>
     </div>
   );
 }
