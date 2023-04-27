@@ -7,7 +7,7 @@ import './Authbox.css';
 function SignIn({ setLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -41,6 +41,7 @@ function SignIn({ setLoggedIn }) {
         });
 
         setLoggedIn(true); // Update the loggedIn state in App component
+        navigate('/dashboard'); // Navigate to the Dashboard
       },
 
       onFailure: (err) => {
