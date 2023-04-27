@@ -1,12 +1,26 @@
-import React, {} from 'react';
+import React, {useState} from 'react';
 import withAuth from './withAuth';
 import SignOutButton from './SignOutButton';
 import { UserPool } from './cognitoConfig';
 import UserStocksContainer from './UserStocksContainer';
-// import { useNavigate } from 'react-router-dom';
+import StockSearch from './StockSearch';
+import { getCognitoUserId } from './getCognitoUserId';
 
 function Dashboard() {
+  const [userStocks, setUserStocks] = useState([]);
+  const userCognitoId = getCognitoUserId();
 
+  const handleAddStock = async (stockInfo) => {
+      const response = await fetch('https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/adduserstock', {
+        method: 'POST',
+        body: JSON.stringify({
+          ticker: stockInfo.ticker,
+          userId: userCognitoId,
+        })
+      });
+      const data = await response.json();
+      setUserStocks([...userStocks, stockInfo]);
+  };
   const handleSignOut = () => {
     const user = UserPool.getCurrentUser();
 
@@ -21,7 +35,8 @@ function Dashboard() {
     <div>
       <h1>Dashboard</h1>
       <SignOutButton onSignOut={handleSignOut} />
-      <UserStocksContainer />
+      <UserStocksContainer userStocks={userStocks} setUserStocks={setUserStocks} userCognitoId={userCognitoId} />
+      <StockSearch handleAddStock={handleAddStock} />
     </div>
   );
 }
