@@ -2,15 +2,34 @@ import React, { useState } from 'react';
 
 function StockSearch({ handleAddStock }) {
   const [ticker, setTicker] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const [stockInfo, setStockInfo] = useState(null);
 
-  const handleChange = (event) => {
+  const handleChange = async (event) => {
     setTicker(event.target.value);
+    if (event.target.value) {
+      try {
+        const apiKey = 'test_key';
+        const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${event.target.value}&apikey=${apiKey}`);
+        const data = await response.json();
+        setSearchResults(data.bestMatches);
+      } catch (error) {
+        console.error('Error fetching stock data:', error);
+      }
+    } else {
+      setSearchResults([]);
+    }
   };
 
-  const handleSearch = async () => {
+  const handleSelectStock = async (symbol) => {
+    setTicker(symbol);
+    setSearchResults([]);
+    handleSearch(symbol);
+  };
+
+  const handleSearch = async (symbol) => {
     try {
-      const response = await fetch(`https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/getstock?ticker=${ticker}`);
+      const response = await fetch(`https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/getstock?ticker=${symbol}`);
       const data = await response.json();
       setStockInfo(data);
     } catch (error) {
@@ -27,7 +46,18 @@ function StockSearch({ handleAddStock }) {
           value={ticker}
           onChange={handleChange}
         />
-        <button onClick={handleSearch}>Search</button>
+        {searchResults.length > 0 && (
+          <div className="search-results">
+            {searchResults.map((result, index) => (
+              <div key={index} onClick={() => handleSelectStock(result['1. symbol'])}>
+                <p>{result['1. symbol']} - {result['2. name']}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <div>
+        <button onClick={() => handleSearch(ticker)}>Search</button>
       </div>
       <div>
         {stockInfo ? (
