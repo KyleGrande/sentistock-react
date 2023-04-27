@@ -39,6 +39,7 @@ function StockSearch({ handleAddStock }) {
 
   return (
     <div>
+      <h3>Search Stocks</h3>
       <div>
         <input
           type="text"
@@ -71,7 +72,7 @@ function StockSearch({ handleAddStock }) {
             <button onClick={() => handleAddStock(stockInfo)}>Add Stock</button>
           </>
         ) : (
-          <p>Search ANY Stock and GET Sentiment</p>
+          <></>
         )}
       </div>
     </div>
