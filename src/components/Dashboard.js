@@ -21,14 +21,8 @@ function Dashboard() {
   //   fetchUserGivenName();
   // }, []);
   
-  const [userGivenName, setUserGivenName] = useState(null);
+  const userGivenName = localStorage.getItem('given_name');
 
-  useEffect(() => {
-    const name = localStorage.getItem('given_name');
-    if (name) {
-      setUserGivenName(name);
-    }
-  }, []);
 
   const handleAddStock = async (stockInfo) => {
       const response = await fetch('https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/adduserstock', {
