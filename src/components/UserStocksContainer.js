@@ -1,11 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import UserStocks from './UserStocks';
 import { getCognitoUserId } from './getCognitoUserId';
 
-function UserStocksContainer() {
-  const [userStocks, setUserStocks] = useState([]);
+function UserStocksContainer({userStocks, setUserStocks}) {
   const cognitoUserId = getCognitoUserId();
-  console.log ('cognitoUserId:', cognitoUserId);
 
   const fetchSingleStockData = useCallback(async (ticker) => {
     try {
@@ -36,7 +34,7 @@ function UserStocksContainer() {
     } catch (error) {
       console.error('Error fetching user stocks:', error);
     }
-  }, [cognitoUserId, fetchSingleStockData]);
+  }, [cognitoUserId, fetchSingleStockData, setUserStocks]);
 
   useEffect(() => {
     if (cognitoUserId) {

@@ -7,7 +7,7 @@ import './Authbox.css';
 function SignIn({ setLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -26,8 +26,23 @@ function SignIn({ setLoggedIn }) {
       onSuccess: (data) => {
         console.log('onSuccess:', data);
         localStorage.setItem('user', JSON.stringify(data));
+        user.getUserAttributes((err, attributes) => {
+          if (err) {
+            console.error('Error fetching user attributes:', err);
+          } else {
+            const givenNameAttribute = attributes.find(
+              (attribute) => attribute.Name === 'given_name'
+            );
+
+            if (givenNameAttribute) {
+              localStorage.setItem('given_name', givenNameAttribute.Value);
+            }
+          }
+        });
+
         setLoggedIn(true); // Update the loggedIn state in App component
       },
+
       onFailure: (err) => {
         console.error('onFailure:', err);
       },
