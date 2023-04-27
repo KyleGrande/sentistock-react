@@ -9,7 +9,7 @@ function StockSearch({ handleAddStock }) {
     setTicker(event.target.value);
     if (event.target.value) {
       try {
-        const apiKey = 'test_key';
+        const apiKey = 'JE4GXUURLWA6DGLJ';
         const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${event.target.value}&apikey=${apiKey}`);
         const data = await response.json();
         setSearchResults(data.bestMatches);

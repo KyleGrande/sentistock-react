@@ -6,6 +6,8 @@ import SignOut from './components/SignOut';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import Error from './components/Error';
+import StockInfo from './components/StockInfo';
+import StockSearch from './components/StockSearch';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,6 +37,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/stockinfo/:symbol" element={<StockInfo />} />
           <Route element={<SignIn />} />
           <Route path="error" element={<Error />} />
         </Routes>
