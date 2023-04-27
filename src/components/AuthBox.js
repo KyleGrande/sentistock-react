@@ -9,13 +9,17 @@ function AuthBox({ loggedIn, setLoggedIn }) {
   const toggleAuthMode = () => {
     setIsSignUp(!isSignUp);
   };
+  const switchToSignIn = () => {
+    setIsSignUp(false);
+  };
+
 
   return (
     <div className="sign-in-sign-up-box">
       <h1>SentiStock</h1>
       <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
 
-      {isSignUp ? <SignUp /> : <SignIn setLoggedIn={setLoggedIn} />} {/* Pass setLoggedIn prop */}
+      {isSignUp ? <SignUp switchToSignIn={switchToSignIn} /> : <SignIn setLoggedIn={setLoggedIn} />}
       <p onClick={toggleAuthMode}>
         {isSignUp ? (
           <p>

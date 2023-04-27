@@ -3,7 +3,7 @@ import { CognitoUser, CognitoUserAttribute } from 'amazon-cognito-identity-js';
 import { UserPool } from './cognitoConfig';
 import { useNavigate } from 'react-router-dom';
 
-function SignUp() {
+function SignUp({switchToSignIn}) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -46,7 +46,7 @@ function SignUp() {
         console.error(err);
       } else {
         console.log(result);
-        navigate('/');
+        switchToSignIn(); // Call the callback function
       }
     });
   };
