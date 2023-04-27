@@ -23,7 +23,7 @@
 .Dashboard-Main-Container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     /* align-items: center; */
     width: 100%;
     height: 80%;
@@ -31,9 +31,19 @@
 }
 
 .user-Stocks-Container {
+    text-align: center;
     height: 100%;
-   overflow-y: scroll;
+    overflow-y: scroll;
+    min-width: 50%;
 } 
 
 .stock-Search-Container {
+
+    min-width: 50%;
+}
+/* remove list  stlyes*/
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
