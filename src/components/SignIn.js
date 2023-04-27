@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import { UserPool } from './cognitoConfig';
 import { useNavigate } from 'react-router-dom';
+import './Authbox.css';
 
 function SignIn({ setLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -37,8 +38,9 @@ function SignIn({ setLoggedIn }) {
   };
 
   return (
-    <div>
+<div className="form-container" style={{ textAlign: "center" }}>
       <form onSubmit={onSubmit}>
+      <br/>
         <input
           type="text"
           value={email}
@@ -51,6 +53,7 @@ function SignIn({ setLoggedIn }) {
           onChange={(event) => setPassword(event.target.value)}
           placeholder="Password"
         />
+        <br/>
         <button type="submit">Sign In</button>
       </form>
     </div>

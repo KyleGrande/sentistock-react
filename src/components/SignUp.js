@@ -46,12 +46,12 @@ function SignUp() {
         console.error(err);
       } else {
         console.log(result);
-        navigate('/signin');
+        navigate('/');
       }
     });
   };
   return (
-    <div>
+    <div className="form-container" style={{ textAlign: "center" }}>
       {!showVerification ? (
         <form onSubmit={onSubmit}>
           <input

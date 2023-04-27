@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
 import SignOutButton from './SignOutButton';
+import AuthBox from './AuthBox';
 import Dashboard from './Dashboard';
 import TopStocksContainer from './TopStocksContainer';
 
@@ -26,9 +25,7 @@ function Home({ loggedIn, setLoggedIn, children }) {
 
     return (
       <>
-        <h1>SentiStock</h1>
-        <SignIn setLoggedIn={setLoggedIn} />
-        <SignUp />
+        <AuthBox loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <TopStocksContainer />
       </>
     );
