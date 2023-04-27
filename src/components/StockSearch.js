@@ -30,9 +30,9 @@ function StockSearch({ handleAddStock }) {
         <button onClick={handleSearch}>Search</button>
       </div>
       <div>
-        <h3>Stock Info:</h3>
         {stockInfo ? (
           <>
+            <h3>Stock Info:</h3>
             <p>Ticker: {stockInfo.ticker}</p>
             <p>Price: {stockInfo.quote}</p>
             <p>Sentiment: {stockInfo.sentiment}</p>
@@ -41,7 +41,7 @@ function StockSearch({ handleAddStock }) {
             <button onClick={() => handleAddStock(stockInfo)}>Add Stock</button>
           </>
         ) : (
-          <p>Loading stock information...</p>
+          <p>Search ANY Stock and GET Sentiment</p>
         )}
       </div>
     </div>
