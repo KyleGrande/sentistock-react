@@ -24,25 +24,38 @@ function UserStocksContainer({userStocks, setUserStocks}) {
       const data = await response.json();
       console.log('User stocks data:', data);
       if (data.stocks && Array.isArray(data.stocks)) {
-        const stocksDataPromises = data.stocks.map((ticker) => fetchSingleStockData(ticker));
-        const stocksData = await Promise.all(stocksDataPromises);
-        setUserStocks(stocksData.filter((stock) => stock !== null));
+        setUserStocks(data.stocks.map((ticker) => ({ ticker })));
       } else {
         console.error('User stocks data is not an array:', data);
-        setUserStocks([]); // Set to an empty array in case of an error
+        setUserStocks([]);
       }
     } catch (error) {
       console.error('Error fetching user stocks:', error);
     }
-  }, [cognitoUserId, fetchSingleStockData, setUserStocks]);
+  }, [cognitoUserId, setUserStocks]);
+  
 
   useEffect(() => {
     if (cognitoUserId) {
       fetchUserStocks();
     }
   }, [cognitoUserId, fetchUserStocks]);
+  const updateStockData = useCallback(
+    (index, stockData) => {
+      const updatedStocks = [...userStocks];
+      updatedStocks[index] = { ...updatedStocks[index], ...stockData };
+      setUserStocks(updatedStocks);
+    },
+    [userStocks, setUserStocks]
+  );
 
-  return <UserStocks userStocks={userStocks} />;
+  return (
+    <UserStocks
+      userStocks={userStocks}
+      fetchSingleStockData={fetchSingleStockData}
+      updateStockData={updateStockData}
+    />
+  );
 }
 
 export default UserStocksContainer;
