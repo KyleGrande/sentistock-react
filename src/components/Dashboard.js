@@ -10,15 +10,24 @@ import { getCognitoUserId, getUserGivenName } from './getCognitoUserId';
 function Dashboard() {
   const [userStocks, setUserStocks] = useState([]);
   const userCognitoId = getCognitoUserId();
+  // const [userGivenName, setUserGivenName] = useState(null);
+
+  // useEffect(() => {
+  //   const fetchUserGivenName = async () => {
+  //     const name = await getUserGivenName();
+  //     setUserGivenName(name);
+  //   };
+
+  //   fetchUserGivenName();
+  // }, []);
+  
   const [userGivenName, setUserGivenName] = useState(null);
 
   useEffect(() => {
-    const fetchUserGivenName = async () => {
-      const name = await getUserGivenName();
+    const name = localStorage.getItem('given_name');
+    if (name) {
       setUserGivenName(name);
-    };
-
-    fetchUserGivenName();
+    }
   }, []);
 
   const handleAddStock = async (stockInfo) => {
@@ -34,12 +43,12 @@ function Dashboard() {
   };
   const handleSignOut = () => {
     const user = UserPool.getCurrentUser();
-
+  
     if (user) {
       user.signOut();
       localStorage.removeItem('user');
+      localStorage.removeItem('given_name'); // Remove the given_name from local storage
     }
-
   };
 
   return (
