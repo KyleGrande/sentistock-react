@@ -1,0 +1,27 @@
+input[type="text"], 
+input[type="password"], 
+textarea {
+  display: block;
+  width: calc(200% + 10px);
+  padding: 12px;
+  /* border: 0px solid #ccc; */
+  border-radius: 0px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-align: left;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .signInInput{
+      border-bottom: 1px solid black;
+  }

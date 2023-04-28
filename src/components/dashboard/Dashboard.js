@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import withAuth from './withAuth';
-import SignOutButton from './SignOutButton';
-import { UserPool } from './cognitoConfig';
-import UserStocksContainer from './UserStocksContainer';
+import withAuth from '../withAuth';
+import SignOutButton from '../SignOutButton';
+import { UserPool } from '../cognitoConfig';
+import UserStocksContainer from '../UserStocksContainer';
 // import StockSearch2 from './StockSearch2';
-import StockSearch from './StockSearch';
-import { getCognitoUserId, getUserGivenName } from './getCognitoUserId';
+import StockSearch from '../StockSearch';
+import { getCognitoUserId, getUserGivenName } from '../getCognitoUserId';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SignUp from './SignUp';
-import SignIn from './SignIn'
+import SignIn from './signIn/SignIn'
 import './Authbox.css';
 
 function AuthBox({ loggedIn, setLoggedIn }) {
@@ -11,16 +11,17 @@ function AuthBox({ loggedIn, setLoggedIn }) {
   };
   const switchToSignIn = () => {
     setIsSignUp(false);
+  
   };
 
 
   return (
     <div className="sign-in-sign-up-box">
-      <h1>SentiStock</h1>
+      {/* <h1>SentiStock</h1> */}
       <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
 
       {isSignUp ? <SignUp switchToSignIn={switchToSignIn} /> : <SignIn setLoggedIn={setLoggedIn} />}
-      <p onClick={toggleAuthMode}>
+      <p id="signButton" onClick={toggleAuthMode}>
         {isSignUp ? (
           <p>
             <strong>Already have an account? </strong>
