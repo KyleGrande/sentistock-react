@@ -58,7 +58,7 @@ function StockSearch({ handleAddStock }) {
         )}
       </div>
       <div>
-        <button onClick={() => handleSearch(ticker)}>Search</button>
+        {/* <button onClick={() => handleSearch(ticker)}>Search</button> */}
       </div>
       <div>
         {stockInfo ? (
