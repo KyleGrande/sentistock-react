@@ -4,12 +4,14 @@ import { UserPool } from './cognitoConfig';
 import { useNavigate } from 'react-router-dom';
 
 function SignUp({switchToSignIn}) {
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [givenName, setGivenName] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [showVerification, setShowVerification] = useState(false);
+
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -25,6 +27,7 @@ function SignUp({switchToSignIn}) {
       (err, data) => {
         if (err) {
           console.error(err);
+          setError(err.message);
         } else {
           setShowVerification(true);
           console.log(data);
@@ -44,6 +47,7 @@ function SignUp({switchToSignIn}) {
     user.confirmRegistration(verificationCode, true, (err, result) => {
       if (err) {
         console.error(err);
+        setError(err.message);
       } else {
         console.log(result);
         switchToSignIn(); // Call the callback function
@@ -91,6 +95,9 @@ function SignUp({switchToSignIn}) {
           <button type="submit">Verify</button>
         </form>
       )}
+      {error && 
+            <p><strong>{error}</strong>
+              </p>}
     </div>
   );
 }

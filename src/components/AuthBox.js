@@ -17,7 +17,6 @@ function AuthBox({ loggedIn, setLoggedIn }) {
 
   return (
     <div className="sign-in-sign-up-box">
-      {/* <h1>SentiStock</h1> */}
       <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
 
       {isSignUp ? <SignUp switchToSignIn={switchToSignIn} /> : <SignIn setLoggedIn={setLoggedIn} />}

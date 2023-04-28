@@ -8,6 +8,7 @@ import './SignIn.css'
 function SignIn({ setLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const onSubmit = (event) => {
@@ -47,6 +48,8 @@ function SignIn({ setLoggedIn }) {
 
       onFailure: (err) => {
         console.error('onFailure:', err);
+        setError(err.message);
+        
       },
       newPasswordRequired: (userAttributes, requiredAttributes) => {
         console.log('newPasswordRequired:', userAttributes, requiredAttributes);
@@ -77,6 +80,8 @@ function SignIn({ setLoggedIn }) {
         <br/>
         <button type="submit">Sign In</button>
       </form>
+      {error && 
+      <p><strong>{error}</strong></p>}
     </div>
   );
 }
