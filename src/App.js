@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import SignIn from './components/SignIn';
+import SignIn from './components/signIn/SignIn';
 import SignUp from './components/SignUp';
 import SignOut from './components/SignOut';
-import Dashboard from './components/Dashboard';
-import Home from './components/Home';
+import Dashboard from './components/dashboard/Dashboard';
+import Home from './components/home/Home';
 import Error from './components/Error';
 import StockInfo from './components/StockInfo';
 import StockSearch from './components/StockSearch';

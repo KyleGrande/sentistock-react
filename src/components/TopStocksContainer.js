@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import TopStocks from './TopStocks';
+import TopStocks from './topStocks/TopStocks';
 
 function TopStocksContainer() {
   const [topStocks, setTopStocks] = useState([]);

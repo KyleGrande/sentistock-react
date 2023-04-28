@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import SignOutButton from './SignOutButton';
-import AuthBox from './AuthBox';
-import Dashboard from './Dashboard';
-import TopStocksContainer from './TopStocksContainer';
+import SignOutButton from '../SignOutButton';
+import AuthBox from '../AuthBox';
+import Dashboard from '../dashboard/Dashboard';
+import TopStocksContainer from '../TopStocksContainer';
+import Header from '../header/Header';
+import './Home.css';
+
+
 
 function Home({ loggedIn, setLoggedIn, children }) {
   const [localLoggedIn, setLocalLoggedIn] = useState(loggedIn);
@@ -25,9 +29,19 @@ function Home({ loggedIn, setLoggedIn, children }) {
 
     return (
       <>
-        <AuthBox loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-        <TopStocksContainer />
+        <Header/>
+        <div className="homeContainer" >
+          <div className="homeLeft-component">
+          <AuthBox loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          </div>
+          
+          <div className="homeRight-component">
+          <TopStocksContainer />
+          </div>
+        </div>
+
       </>
+
     );
   };
 

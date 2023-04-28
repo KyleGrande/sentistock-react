@@ -1,0 +1,23 @@
+.homeContainer {
+    display: flex;
+    /* border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 35px;
+    height: 600px; */
+    padding: 20px;
+    margin: 35px;
+
+}
+  .homeLeft-component {
+    float: left;
+    width: 50%;
+    border-right: 1px solid gray;
+    margin: 30px;
+    
+  }
+  
+  .homeRight-component {
+    float: right;
+    width: 50%;
+  }

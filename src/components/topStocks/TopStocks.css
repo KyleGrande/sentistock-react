@@ -1,0 +1,51 @@
+.card-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border: 1px solid #ccc;
+    flex-basis: 48%;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); */
+    transition: 0.3s;
+
+
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .ticker {
+    flex-basis: 20%;
+    font-weight: bold;
+  }
+  
+  .price {
+    flex-basis: 20%;
+  }
+  
+  .sentiment {
+    flex-basis: 30%;
+  }
+  
+  .average-sentiment {
+    flex-basis: 30%;
+  }
+
