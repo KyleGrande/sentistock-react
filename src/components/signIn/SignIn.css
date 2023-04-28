@@ -2,7 +2,7 @@ input[type="text"],
 input[type="password"], 
 textarea {
   display: block;
-  width: 100%;
+  width: 99%;
   padding: 2.5%;
   /* border: 0px solid #ccc; */
   border-radius: 0px;
