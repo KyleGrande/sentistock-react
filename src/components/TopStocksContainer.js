@@ -7,7 +7,7 @@ function TopStocksContainer() {
   useEffect(() => {
     const fetchTopStocks = async () => {
       try {
-        const response = await fetch('https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/gettopstocks');
+        const response = await fetch('https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/gettopstocks/gettopbyindex');
         const data = await response.json();
         setTopStocks(data);
       } catch (error) {
