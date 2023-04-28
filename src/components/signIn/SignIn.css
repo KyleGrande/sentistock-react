@@ -2,8 +2,8 @@ input[type="text"],
 input[type="password"], 
 textarea {
   display: block;
-  width: calc(200% + 10px);
-  padding: 12px;
+  width: 100%;
+  padding: 2.5%;
   /* border: 0px solid #ccc; */
   border-radius: 0px;
   box-sizing: border-box;
