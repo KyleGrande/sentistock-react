@@ -41,6 +41,11 @@
 
     min-width: 50%;
 }
+
+.stock-Search-Container input{
+    min-width: 50%;
+    max-width: 50%;
+}
 /* remove list  stlyes*/
 ul {
     list-style-type: none;
