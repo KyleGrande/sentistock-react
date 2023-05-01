@@ -7,6 +7,9 @@ import UserStocksContainer from '../UserStocksContainer';
 import StockSearch from '../StockSearch';
 import { getCognitoUserId, getUserGivenName } from '../getCognitoUserId';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import SentimentAnalysis from './SentimentAnalysis';
+
 import './Dashboard.css';
 
 function Dashboard() {
@@ -44,6 +47,7 @@ function Dashboard() {
     <div className='Dashboard'>
       <div className='Dashboard-Header'>
       <h1>Hello, {userGivenName}</h1>
+      <Link to="/sentimentanalysis">Sentiment Analysis</Link>
       <SignOutButton onSignOut={handleSignOut} />
       </div>
       <div className='Dashboard-Main-Container'>

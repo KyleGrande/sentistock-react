@@ -8,6 +8,7 @@ import Home from './components/home/Home';
 import Error from './components/Error';
 import StockInfo from './components/StockInfo';
 import StockSearch from './components/StockSearch';
+import SentimentAnalysis from './components/dashboard/SentimentAnalysis';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -37,6 +38,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/sentimentanalysis" element={<SentimentAnalysis />} />
+
           <Route path="/stockinfo/:symbol" element={<StockInfo />} />
           <Route element={<SignIn />} />
           <Route path="error" element={<Error />} />
