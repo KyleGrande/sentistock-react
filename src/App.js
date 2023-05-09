@@ -7,7 +7,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Home from './components/home/Home';
 import Error from './components/Error';
 import StockInfo from './components/StockInfo';
-import StockSearch from './components/StockSearch';
+// import StockSearch from './components/StockSearch';
 import SentimentAnalysis from './components/dashboard/SentimentAnalysis';
 
 function App() {

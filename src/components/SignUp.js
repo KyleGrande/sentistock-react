@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CognitoUser, CognitoUserAttribute } from 'amazon-cognito-identity-js';
 import { UserPool } from './cognitoConfig';
 import { useNavigate } from 'react-router-dom';
+import './signIn/SignIn.css';
 
 function SignUp({switchToSignIn}) {
   const [error, setError] = useState('');
@@ -55,22 +56,28 @@ function SignUp({switchToSignIn}) {
     });
   };
   return (
-    <div className="form-container" style={{ textAlign: "center" }}>
+    <div className="form-container" style={{ textAlign: "left" }}>
       {!showVerification ? (
         <form onSubmit={onSubmit}>
+          <p>Name</p>
           <input
+            className='signInInput'
             type="text"
             value={givenName}
             onChange={(event) => setGivenName(event.target.value)}
-            placeholder="Given Name"
+            placeholder="John Doe"
           />
+          <p>Email</p>
           <input
+            className='signInInput'
             type="text"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="Email"
+            placeholder="name@example.com"
           />
+          <p>Password</p>
           <input
+            className='signInInput'
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -80,13 +87,17 @@ function SignUp({switchToSignIn}) {
         </form>
       ) : (
         <form onSubmit={onVerify}>
+          <p>Email</p>
           <input
+            className='signInInput'
             type="text"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder="Email"
           />
+          <p>Verification Code</p>
           <input
+            className='signInInput'
             type="text"
             value={verificationCode}
             onChange={(event) => setVerificationCode(event.target.value)}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './StockSearch.css';
 
 function StockSearch({ handleAddStock }) {
   const [ticker, setTicker] = useState('');
@@ -37,40 +38,60 @@ function StockSearch({ handleAddStock }) {
     }
   };
 
+  const closeModal = () => {
+    setStockInfo(null);
+  };
+  const handleSelectStockClose = async (symbol) => {
+    setTicker(symbol);
+    setSearchResults([]);
+    handleSearch(symbol);
+  };
+
+  const wrappedHandleAddStock = (stockInfo) => {
+    handleAddStock(stockInfo);
+    closeModal();
+  };
   return (
     <div>
       <h3>Search Stocks</h3>
       <div>
         <input
+          className='stockSearchbar'
           type="text"
           placeholder="Enter ticker"
           value={ticker}
           onChange={handleChange}
         />
+        <div className="search-results">
         {searchResults.length > 0 && (
-          <div className="search-results">
-            {searchResults.map((result, index) => (
-              <div key={index} onClick={() => handleSelectStock(result['1. symbol'])}>
-                <p>{result['1. symbol']} - {result['2. name']}</p>
-              </div>
-            ))}
+          <div >
+          {searchResults.map((result, index) => (
+            <div key={index}>
+              <a href="#" onClick={(e) => { e.preventDefault(); handleSelectStock(result['1. symbol']); }}>
+                {result['1. symbol']} - {result['2. name']}
+              </a>
+            </div>
+          ))}
           </div>
         )}
+      </div>
       </div>
       <div>
         {/* <button onClick={() => handleSearch(ticker)}>Search</button> */}
       </div>
       <div>
         {stockInfo ? (
-          <>
-            <h3>Stock Info:</h3>
-            <p>Ticker: {stockInfo.ticker}</p>
-            <p>Price: {stockInfo.quote}</p>
-            <p>Sentiment: {stockInfo.sentiment}</p>
-            <p>Average Sentiment: {stockInfo.avg_sentiment}</p>
-            <p>Timestamp: {stockInfo.timestamp}</p>
-            <button onClick={() => handleAddStock(stockInfo)}>Add Stock</button>
-          </>
+          <div className={`modal ${stockInfo ? 'show' : ''}`} onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h3>Stock Info:</h3>
+              <p>Ticker: {stockInfo.ticker}</p>
+              <p>Price: {stockInfo.quote}</p>
+              <p>Sentiment: {stockInfo.sentiment}</p>
+              <p>Average Sentiment: {stockInfo.avg_sentiment}</p>
+              <p>Timestamp: {stockInfo.timestamp}</p>
+              <button onClick={() => wrappedHandleAddStock(stockInfo)}>Add Stock</button>
+            </div>
+          </div>
         ) : (
           <></>
         )}

@@ -2,11 +2,8 @@
 .Dashboard {
     height: 100vh;
     width: 100vw;
-    overflow : hidden;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-
 }
 
 .Dashboard-Header{
@@ -18,37 +15,54 @@
     align-items: center;
     background-color: #1a1a1a;
     color: white;
-    padding: 0 2%;
 }
 .Dashboard-Main-Container {
     display: flex;
-    flex-direction: row;
-    /* justify-content: space-around; */
-    /* align-items: center; */
-    width: 100%;
-    height: 80%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
 }
 
 .user-Stocks-Container {
+    display: flex;
+    justify-content: center;
     text-align: center;
     height: 100%;
-    overflow-y: scroll;
-    min-width: 50%;
+    overflow-y: hidden;
+    width: 99%;
+    margin-top: 20px;
 } 
 
-.stock-Search-Container {
+.user-Stocks-SubContainer{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: 100%;
 
-    min-width: 50%;
+}
+
+.stockSeachContainer{
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .stock-Search-Container input{
-    min-width: 50%;
-    max-width: 50%;
 }
-/* remove list  stlyes*/
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
+
+/* .stock-item {
+    width: 60%; 
+    height: 4rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #F3F3F3;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  } */

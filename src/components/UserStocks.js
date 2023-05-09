@@ -30,9 +30,14 @@ const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData }) => {
               {stock.ticker}
             </div>
             {expandedIndices.includes(index) && stock.quote && (
-              <div>
-                Price: {stock.quote} - Sentiment: {stock.sentiment} - Avg Sentiment: {stock.avg_sentiment}
-              </div>
+              // <div>
+              //   Price: {stock.quote} - Sentiment: {stock.sentiment} - Avg Sentiment: {stock.avg_sentiment}
+              // </div>
+              <div className="popup">
+              <p>Price: {stock.quote}</p>
+              <p>Sentiment: {stock.sentiment}</p>
+              <p>Avg Sentiment: {stock.avg_sentiment}</p>
+            </div>
             )}
           </div>
         ))}

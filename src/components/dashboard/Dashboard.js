@@ -4,7 +4,7 @@ import SignOutButton from '../SignOutButton';
 import { UserPool } from '../cognitoConfig';
 import UserStocksContainer from '../UserStocksContainer';
 // import StockSearch2 from './StockSearch2';
-import StockSearch from '../StockSearch';
+import StockSearch from '../stocksearch/StockSearch';
 import { getCognitoUserId, getUserGivenName } from '../getCognitoUserId';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -45,23 +45,30 @@ function Dashboard() {
 
   return (
     <div className='Dashboard'>
+
       <div className='Dashboard-Header'>
       <h1>Hello, {userGivenName}</h1>
       <Link to="/sentimentanalysis">Sentiment Analysis</Link>
       <SignOutButton onSignOut={handleSignOut} />
       </div>
-      <div className='Dashboard-Main-Container'>
 
-      <div className='user-Stocks-Container'>
-      <UserStocksContainer userStocks={userStocks} setUserStocks={setUserStocks} />
+      <div className='Dashboard-Main-Container'>
+        <div className='stockSeachContainer'>
+          <StockSearch handleAddStock={handleAddStock} />
+        </div>
+        <div className='user-Stocks-Container'>
+          <div className='user-Stocks-SubContainer'>
+            <UserStocksContainer userStocks={userStocks} setUserStocks={setUserStocks} />
+          </div>
+        
       {/* <StockSearch2 handleAddStock={handleAddStock} /> */}
       </div>
-      <div className='stock-Seach-Container'>
-      <StockSearch handleAddStock={handleAddStock} />
-      </div>
+
       </div>
     </div>
   );
+
+
 }
 
 export default withAuth(Dashboard);

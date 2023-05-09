@@ -1,16 +1,7 @@
-input[type="text"], 
+/* input[type="text"], 
 input[type="password"], 
 textarea {
-  display: block;
-  width: 99%;
-  padding: 2.5%;
-  /* border: 0px solid #ccc; */
-  border-radius: 0px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  font-size: 16px;
-  text-align: left;
-}
+} */
 
 button[type="submit"] {
     background-color: #4CAF50;
@@ -24,4 +15,14 @@ button[type="submit"] {
 
   .signInInput{
       border-bottom: 1px solid black;
-  }
+      display: block;
+      width: 99%;
+      padding: 2.5%;
+      /* border: 0px solid #ccc; */
+      border-radius: 0px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      font-size: 16px;
+      text-align: left;
+    }
+  
