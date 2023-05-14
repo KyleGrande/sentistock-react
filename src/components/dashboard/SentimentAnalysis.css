@@ -123,7 +123,7 @@
     z-index: 9999;
 }
 
-.modal {
+.modalSenti {
     position: fixed;
     top: 0;
     left: 0;
@@ -136,7 +136,7 @@
     z-index: 9998;
   }
   
-  .modal.open {
+  .modalSenti.open {
     visibility: visible;
   }
   
@@ -169,4 +169,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 9999;
   }
-  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem; 
+  }

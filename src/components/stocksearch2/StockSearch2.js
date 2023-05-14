@@ -23,29 +23,6 @@ function StockSearch2({ handleAddStock }) {
   const handleSelectStock = (symbol) => {
     navigate(`/stockinfo/${symbol}`);
   };
-
-  // return (
-  //   <div>
-  //     <div>
-  //       <input
-  //         type="text"
-  //         placeholder="Enter ticker"
-  //         value={ticker}
-  //         onChange={handleChange}
-  //       />
-  //       <button onClick={handleSearch}>Search</button>
-  //     </div>
-  //     <div>
-  //       {searchResults.map((result) => (
-  //         <div className='searchResultsContainer' key={result['1. symbol']}>
-  //           {result['1. symbol']} - {result['2. name']}
-  //           <button onClick={() => handleAddStock(result)}>Add Stock</button>
-  //           <button onClick={() => handleSelectStock(result['1. symbol'])}>View Stock</button>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   </div>
-  // );
   return (
     <div>
       <div>

@@ -69,13 +69,15 @@ function SentimentAnalysis() {
 
 
       <h1>Sentiment Analysis</h1>
+      <textarea  value={inputText} onChange={handleChange} 
+        placeholder="Enter Text to process Sentiment Analysis. 'Analyze Sentiment' to scan the entire article. 'Analyze Target Sentiment' to scan for company names'"/>
+
+      <div className="button-container">
       <button onClick={handleAnalyzeSentiment}>Analyze Sentiment</button>
       <button onClick={handleAnalyzeTargetSentiment}>Analyze Target Sentiment</button>
-      <textarea  value={inputText} onChange={handleChange} />
-
-
+      </div>
       {sentimentResult && (
-        <div className={`modal${isSentimentResultOpen ? ' open' : ''}`}>
+        <div className={`modalSenti${isSentimentResultOpen ? ' open' : ''}`}>
           <div className="modal-overlay" onClick={handleCloseSentimentResult}></div>
           <div className="sentimentResult">
           <h2>Sentiment Result</h2>
@@ -91,7 +93,7 @@ function SentimentAnalysis() {
           </div>
       )}
       {targetSentimentResult && (
-        <div className={`modal${isTargetSentimentResultOpen ? ' open' : ''}`}>
+        <div className={`modalSenti${isTargetSentimentResultOpen ? ' open' : ''}`}>
           <div className="modal-overlay" onClick={handleCloseTargetSentimentResult}></div>
           <div className="targetSentimentResult">
               <h2>Target Sentiment Result</h2>
