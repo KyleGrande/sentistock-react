@@ -6,16 +6,49 @@
     flex-direction: column;
 }
 
-.Dashboard-Header{
-    height: 10%;
-    width: 100%;
+.Dashboard-Header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     background-color: #1a1a1a;
+    padding: 1rem;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  .Dashboard-Header h1 {
+    font-size: 2rem;
     color: white;
-}
+    margin: 0;
+  }
+  
+  .Dashboard-Header a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    transition: color 0.2s ease;
+  }
+  
+  .Dashboard-Header a:hover {
+    color: #bbbbbb;
+  }
+  
+  .Dashboard-Header button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .Dashboard-Header button:hover {
+    color: #bbbbbb;
+  }
+  
+
+
 .Dashboard-Main-Container {
     display: flex;
     flex-direction: column;
@@ -55,14 +88,3 @@
 .stock-Search-Container input{
 }
 
-/* .stock-item {
-    width: 60%; 
-    height: 4rem;
-    border-radius: 1rem;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    background-color: #F3F3F3;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  } */
