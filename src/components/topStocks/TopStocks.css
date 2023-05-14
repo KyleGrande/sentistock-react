@@ -17,13 +17,15 @@
     display: flex;
     flex-direction: row;
     padding: 10px;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
     flex-basis: 48%;
     padding: 16px;
     border-radius: 10px;
     margin-bottom: 12px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); */
     transition: 0.3s;
+    border: 100px solid black;
+    
 
 
   }
