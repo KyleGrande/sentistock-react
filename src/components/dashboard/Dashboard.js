@@ -32,7 +32,19 @@ function Dashboard() {
     // Navigate to the stock page
     // navigate(`/stockinfo/${stockInfo.ticker}`);
   };
-
+  
+  const handleRemoveStock = async (stockInfo) => {
+    const response = await fetch('https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/removeuserstock', {
+      method: 'DELETE',
+      body: JSON.stringify({
+        ticker: stockInfo.ticker,
+        userId: userCognitoId,
+      })
+    });
+    const data = await response.json();
+    setUserStocks(userStocks.filter(stock => stock.ticker !== stockInfo.ticker));
+  };
+  
   const handleSignOut = () => {
     const user = UserPool.getCurrentUser();
 
