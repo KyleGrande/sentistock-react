@@ -23,15 +23,15 @@ const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData }) => {
   const getSentimentClass = (sentiment) => {
     if (!sentiment) return '';
     switch (sentiment.toLowerCase()) {
-      case 'positive':
+      case 'bullish':
       case 'somewhat bullish':
       case 'extremely bullish':
         return 'positive';
       case 'neutral':
         return 'neutral';
-      case 'negative':
-      case 'somewhat negative':
-      case 'extremely negative':
+      case 'bearish':
+      case 'somewhat bearish':
+      case 'extremely bearish':
         return 'negative';
       default:
         return '';
