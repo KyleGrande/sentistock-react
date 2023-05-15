@@ -35,7 +35,7 @@ function Dashboard() {
   
   const handleRemoveStock = async (stockInfo) => {
     const response = await fetch('https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/removeuserstock', {
-      method: 'DELETE',
+      method: 'POST',
       body: JSON.stringify({
         ticker: stockInfo.ticker,
         userId: userCognitoId,

@@ -21,9 +21,10 @@ const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData, handleR
     }
   };
 
-  const handleRemoveClick = (event, stock) => {
+  const handleRemoveClick = (event, index, stock) => {
     event.stopPropagation();  
     handleRemoveStock(stock);
+    setExpandedIndices(expandedIndices.filter((item) => item !== index));
   };
 
   const getSentimentClass = (sentiment) => {
@@ -62,7 +63,7 @@ const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData, handleR
                 <p>Price: {stock.quote}</p>
                 <p>Sentiment: {stock.sentiment}</p>
                 <p>Avg Sentiment: {stock.avg_sentiment}</p>
-                <button onClick={(event) => handleRemoveClick(event, stock)}>Remove</button>
+                <button onClick={(event) => handleRemoveClick(event, index, stock)}>Remove</button>
               </div>
             )}
           </div>
