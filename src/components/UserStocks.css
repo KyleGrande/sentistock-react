@@ -34,7 +34,7 @@
   
   .stock-item.positive {
     background-color: #34A853; 
-    color: white;
+    color: black;
   }
   
   .stock-item.neutral {
@@ -44,7 +44,7 @@
   
   .stock-item.negative {
     background-color: #EA4335; 
-    color: white;
+    color: black;
   }
   
   .ticker {
