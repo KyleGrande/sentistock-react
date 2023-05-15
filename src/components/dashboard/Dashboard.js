@@ -70,7 +70,7 @@ function Dashboard() {
         </div>
         <div className='user-Stocks-Container'>
           <div className='user-Stocks-SubContainer'>
-            <UserStocksContainer userStocks={userStocks} setUserStocks={setUserStocks} />
+          <UserStocksContainer userStocks={userStocks} setUserStocks={setUserStocks} handleRemoveStock={handleRemoveStock}/>          
           </div>
         
       {/* <StockSearch2 handleAddStock={handleAddStock} /> */}
