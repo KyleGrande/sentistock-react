@@ -2,16 +2,12 @@ import React from 'react';
 import './TopStocks.css';
 
 const getSentimentColor = (sentiment) => {
-  if (sentiment <= -0.35) {
+  if (sentiment <= -0.15) {
     return 'red'; // Bearish
-  } else if (sentiment <= -0.15) {
-    return 'orange'; // Somewhat Bearish
-  } else if (sentiment >= 0.35) {
-    return 'green'; // Bullish
   } else if (sentiment >= 0.15) {
-    return 'lime'; // Somewhat Bullish
+    return 'green'; // Bullish
   } else {
-    return 'gray'; // Neutral
+    return 'yellow'; // Neutral
   }
 };
 
