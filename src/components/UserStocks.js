@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './UserStocks.css';
 
-const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData }) => {
+
+const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData, handleRemoveStock }) => {
   const [expandedIndices, setExpandedIndices] = useState([]);
 
   const handleClick = async (index, stock) => {
@@ -20,18 +21,24 @@ const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData }) => {
     }
   };
 
+  const handleRemoveClick = (event, index, stock) => {
+    event.stopPropagation();  
+    handleRemoveStock(stock);
+    setExpandedIndices(expandedIndices.filter((item) => item !== index));
+  };
+
   const getSentimentClass = (sentiment) => {
     if (!sentiment) return '';
     switch (sentiment.toLowerCase()) {
-      case 'positive':
+      case 'bullish':
       case 'somewhat bullish':
       case 'extremely bullish':
         return 'positive';
       case 'neutral':
         return 'neutral';
-      case 'negative':
-      case 'somewhat negative':
-      case 'extremely negative':
+      case 'bearish':
+      case 'somewhat bearish':
+      case 'extremely bearish':
         return 'negative';
       default:
         return '';
@@ -56,6 +63,7 @@ const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData }) => {
                 <p>Price: {stock.quote}</p>
                 <p>Sentiment: {stock.sentiment}</p>
                 <p>Avg Sentiment: {stock.avg_sentiment}</p>
+                <button onClick={(event) => handleRemoveClick(event, index, stock)}>Remove</button>
               </div>
             )}
           </div>
@@ -66,4 +74,3 @@ const UserStocks = ({ userStocks, fetchSingleStockData, updateStockData }) => {
 };
 
 export default UserStocks;
-

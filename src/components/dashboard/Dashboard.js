@@ -35,7 +35,7 @@ function Dashboard() {
   
   const handleRemoveStock = async (stockInfo) => {
     const response = await fetch('https://maudq0r7z3.execute-api.us-east-1.amazonaws.com/prod/removeuserstock', {
-      method: 'DELETE',
+      method: 'POST',
       body: JSON.stringify({
         ticker: stockInfo.ticker,
         userId: userCognitoId,
@@ -70,7 +70,7 @@ function Dashboard() {
         </div>
         <div className='user-Stocks-Container'>
           <div className='user-Stocks-SubContainer'>
-            <UserStocksContainer userStocks={userStocks} setUserStocks={setUserStocks} />
+          <UserStocksContainer userStocks={userStocks} setUserStocks={setUserStocks} handleRemoveStock={handleRemoveStock}/>          
           </div>
         
       {/* <StockSearch2 handleAddStock={handleAddStock} /> */}

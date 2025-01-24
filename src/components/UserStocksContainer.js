@@ -2,7 +2,7 @@ import { useEffect, useCallback } from 'react';
 import UserStocks from './UserStocks';
 import { getCognitoUserId } from './getCognitoUserId';
 
-function UserStocksContainer({userStocks, setUserStocks}) {
+function UserStocksContainer({userStocks, setUserStocks, handleRemoveStock}) {
   const cognitoUserId = getCognitoUserId();
 
   const fetchSingleStockData = useCallback(async (ticker) => {
@@ -54,6 +54,8 @@ function UserStocksContainer({userStocks, setUserStocks}) {
       userStocks={userStocks}
       fetchSingleStockData={fetchSingleStockData}
       updateStockData={updateStockData}
+      setUserStocks={setUserStocks} 
+      handleRemoveStock={handleRemoveStock} 
     />
   );
 }
